@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order a Pizza</title>
+    <link rel="stylesheet" href="https://use.typekit.net/bfs7ydr.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/style.css" type="text/css">
+</head>
+
+<body class="bg-light">
+
+<!-- **********HEADER SECTION********** -->
+
+    <div id="heroImg">
+        <img style="padding-left:30px; padding-top:30px" src="images/logo.png" alt="">
+    </div>
+    <div id="background"></div>
+    <div class="container">
+      <main class="px-2 pb-5">
+        <!--Header Text-->
+        <div class="py-5 text-center">
+          <h2 class="header" style="font-size: 30px;;">EAST COAST-STYLE PIZZA, WEST COAST VIBES</h2>
+          <p class="lead text-secondary">Online Order Form</p>
+        </div>
+    
+<!-- **********RUNNING TOTAL SECTION********** -->    
+
+        <!--Shopping Cart-->
+        <div class="row g-5">
+          <div class="col-md-5 col-lg-4 order-md-last hide" id="shoppingCart">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="blue">Your order</span>
+            </h4>
+            <ul class="list-group mb-3" id="shoppingList" style="list-style: none;">
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0" id="orderPizza"></h6>
+                </div>
+                <span class="text-muted" id="pizza$"></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm hide" id="cheeseRow">
+                <div>
+                  <h6 class="my-0" id="orderCheese"></h6>
+                </div>
+                <span class="text-muted" id="cheese$"></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm hide" id="sauceRow" style="border-bottom: none;">
+                <div>
+                  <h6 class="my-0" id="orderSauce"></h6>
+                </div>
+                <span class="text-muted" id="sauce$"></span>
+              </li>
+              <li style="height:36px; border-style:none;">
+                <ul class="list-group mb-3" id="orderToppings" style="border-radius:0; border-top:none; list-style: none;">
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-7 col-lg-8"> <!--START Div 3-->
+
+<!-- **********ONLINE FORM START********** -->
+
+            <form class="needs-validation" novalidate>
+
+    <!-- **********DELIVERY SECTION********** -->
+
+              <fieldset id="fieldset01" class="row g-3"> <!--START Div 4-->
+                <h4 class="mb-3 blue">Delivery Info</h4>
+
+                <!--DELIVERY: First Name-->
+                <div class="col-sm-6">
+                  <label for="deliveryFirstName" class="form-label">First name<span class="text-secondary">*</span></label>
+                  <input type="text" class="form-control" id="deliveryFirstName" placeholder="Jane" autofocus>
+                  <div id="error-fname" class="required hide">
+                    Please enter a valid first name
+                  </div>
+                </div>
+    
+                <!--DELIVERY: Last Name-->
+                <div class="col-sm-6">
+                  <label for="deliveryLastName" class="form-label">Last name<span class="text-secondary">*</span></label>
+                  <input type="text" class="form-control" id="deliveryLastName" placeholder="Doe">
+                  <div class="required hide" id="error-lname">
+                    Please enter a valid last name
+                  </div>
+                </div>
+    
+                <!--DELIVERY: Phone Number-->
+                <div class="col-4">
+                  <label for="deliveryPhone" class="form-label">Phone number<span class="text-secondary">*</span></label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="deliveryPhone" placeholder="333-333-3333">
+                  <div class="required hide" id="error-phone">
+                      Please enter a valid phone number
+                    </div>
+                  </div>
+                </div>
+    
+                <!--DELIVERY: Email-->
+                <div class="col-8">
+                  <label for="deliveryEmail" class="form-label">Email<span class="text-secondary">*</span></label>
+                  <input type="email" class="form-control" id="deliveryEmail" placeholder="me@example.com">
+                  <div class="required hide" id="error-email">
+                    Please enter a valid email address
+                  </div>
+                </div>
+
+                <!--DELIVERY: Address Type-->
+                <div class="col-md-3">
+                    <label for="deliveryAddressType" class="form-label">Address type<span class="text-secondary">*</span></label>
+                    <select class="form-select" id="deliveryAddressType">
+                      <option value="">Choose...</option>
+                      <option value="House">House</option>
+                      <option value="Apartment">Apartment</option>
+                      <option value="Business">Business</option>
+                      <option value="Campus">Campus</option>
+                      <option value="Hotel">Hotel</option>
+                      <option value="Dorm">Dorm</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div class="required hide" id="error-addType">
+                      Please select a valid address type
+                    </div>
+                  </div>
+
+                  <!--DELIVERY: Address Type: Other-->
+                <div class="col-9 hide" id="addressTypeOther">
+                  <label for="deliveryAddressTypeOther" class="form-label">Address Type<span class="text-secondary">*</span></label>
+                  <input type="text" class="form-control" id="deliveryAddressTypeOther">
+                  <div class="required hide" id="error-addTypeOther">
+                    Please enter address type
+                  </div>
+                </div>
+    
+                <!--DELIVERY: Address-->
+                <div id="address01" class="col-9">
+                  <label for="deliveryAddress" class="form-label">Address<span class="text-secondary">*</span></label>
+                  <input type="text" class="form-control" id="deliveryAddress" placeholder="123 Main Street">
+                  <div class="required hide" id="error-address">
+                    Please enter delivery street address
+                  </div>
+                </div>
+    
+                <!--DELIVERY: Address 2-->
+                <div class="col-12">
+                  <label for="deliveryAddress2" class="form-label">Address 2</label>
+                  <input type="text" class="form-control" id="deliveryAddress2" placeholder="Apartment, suite, or room number">
+                </div>
+    
+                <!--DELIVERY: City-->
+                <div class="col-md-5">
+                  <label for="deliveryCity" class="form-label">City<span class="text-secondary">*</span></label>
+                  <input type="text" class="form-control" id="deliveryCity" placeholder="Phoenix">
+                  <div class="required hide" id="error-city">
+                    Please enter a valid city
+                  </div>
+                </div>
+    
+                <!--DELIVERY: State-->
+                <div class="col-md-4">
+                  <label for="deliveryState" class="form-label">State<span class="text-secondary">*</span></label>
+                  <input type="text" class="form-control" id="deliveryState" placeholder="AZ">
+                  <div class="required hide" id="error-state">
+                    Please enter a valid state abbreviation
+                  </div>
+                </div>
+    
+                <!--DELIVERY: Zip-->
+                <div class="col-md-3">
+                  <label for="deliveryZip" class="form-label">Zip<span class="text-secondary">*</span></label>
+                  <input type="text" class="form-control" id="deliveryZip" placeholder="99999 or 99999-9999">
+                  <div class="required hide" id="error-zip">
+                    Please enter valid zip code
+                  </div>
+                </div>
+                <hr class="my-4">
+                <input type="button" id="btnStartOrder" class="w-30 btn btn-secondary btn-lg" value="Start Order">
+            </fieldset> <!--END DIV 4-->
+
+    <!-- **********BUILD YOUR ORDER SECTION********** -->
+
+            <fieldset id="fieldset02" class="row g-3 hide">
+                <h4 class="mb-3 text-secondary"><span class="backToDelivery">Delivery Info</span> > <span class="blue">Build Your Order</span></h4>
+
+                <h5 class="blueBG py-2 leftSpacing" style="color:#fff;">Step 1 - Select Dough Style</h5>
+
+                
+                <div class="form-check" style="padding-left:69px;">
+                    <input class="form-check-input" type="radio" name="doughType" id="handTossed" value="Hand Tossed">
+                    <label class="form-check-label" for="handTossed">
+                      Hand Tossed
+                    </label>
+                  </div>
+                  <div class="form-check" style="padding-left:69px;">
+                    <input class="form-check-input" type="radio" name="doughType" id="thinCrust" value="Thin Crust">
+                    <label class="form-check-label" for="thinCrust">
+                      Thin Crust
+                    </label>
+                  </div>
+                  <div class="form-check" style="padding-left:69px;">
+                    <input class="form-check-input" type="radio" name="doughType" id="newYork" value="New York Style">
+                    <label class="form-check-label" for="newYork">
+                      New York Style
+                    </label>
+                  </div>
+                  <div class="form-check" style="padding-left:69px;">
+                    <input class="form-check-input" type="radio" name="doughType" id="glutenFree" value="Gluten Free">
+                    <label class="form-check-label text-start" for="glutenFree">
+                      Gluten Free
+                    </label>
+                  </div>
+  
+                <h5 class="blueBG py-2 leftSpacing" style="color:#fff;">Step 2 - Select Pie Size</h5>
+                <div id="step2" class="hideMe">
+                <select class="form-select w-50" style="margin-left: 45px;" id="pieSize">
+                </select>
+                </div>
+
+                <h5 class="blueBG py-2 leftSpacing" style="color:#fff;">Step 3 - Select Cheese</h5>
+                <div id="step3" class="hideMe">
+                <select class="form-select w-50" style="margin-left: 45px;" id="cheese">
+                    <option value="light">Light</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="extra">Extra (+$2.99)</option>
+                    <option value="double">Double (+3.99)</option>
+                  </select>
+                </div>
+
+                <h5 class="blueBG py-2 leftSpacing" style="color:#fff;">Step 4 - Select Sauce</h5>
+                <div id="step4" class="hideMe">
+                <select class="form-select w-50" style="margin-left: 45px;" id="sauce">
+                    <option value="regular" selected>Regular Tomato</option>
+                    <option value="hearty tomato">Hearty Tomato (+$.99)</option>
+                    <option value="bbq">BBQ Sauce (+$1.99)</option>
+                  </select>
+                </div>
+
+                <h5 class="blueBG py-2 leftSpacing" style="color:#fff;">Step 5 - Select Optional Toppings</h5>
+                <div id="step5" class="hideMe">
+                  <small class="text-muted mb-2 text-center" style="display: block;">********* $0.99 per topping *********</small>
+                <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Pepperoni" id="Pepperoni">
+                    <label class="form-check-label" for="Pepperoni">
+                      Pepperoni
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Sausage" id="Sausage">
+                    <label class="form-check-label" for="Sausage">
+                      Sausage
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Ham" id="Ham">
+                    <label class="form-check-label" for="Ham">
+                      Ham
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Bacon" id="Bacon">
+                    <label class="form-check-label" for="Bacon">
+                      Bacon
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Salami" id="Salami">
+                    <label class="form-check-label" for="Salami">
+                      Salami
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Peppers" id="Peppers">
+                    <label class="form-check-label" for="Peppers">
+                      Peppers
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Olives" id="Olives">
+                    <label class="form-check-label" for="Olives">
+                      Olives
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Jalapenos" id="Jalapenos">
+                    <label class="form-check-label" for="Jalapenos">
+                      Jalapenos
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Mushrooms" id="Mushrooms">
+                    <label class="form-check-label" for="Mushrooms">
+                      Mushrooms
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Pineapple" id="Pineapple">
+                    <label class="form-check-label" for="Pineapple">
+                      Pineapple
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline w-25" style="padding-left:69px;">
+                    <input class="form-check-input" type="checkbox" value="Onion" id="Onion">
+                    <label class="form-check-label" for="Onion">
+                      Onion
+                    </label>
+                  </div>
+                </div>
+
+                <hr class="my-4">
+                <div class="required hide" id="error-order">
+                  Please select dough style & pie size before proceeding
+                </div>
+              <input type="button" id="btnFinishedBuilding" class="w-100 btn btn-secondary btn-lg" value="Finished Building Pizza">
+            </fieldset>
+
+    <!-- **********BILLING & PAYMENT SECTION********** -->
+
+            <fieldset id="fieldset03" class="row g-3 hide">
+                <h4 class="mb-3 text-secondary"><span class="backToDelivery">Delivery Info</span> > <span id="backToOrder">Build Your Order</span> > <span class="blue">Billing & Payment</span></h4>
+                <fieldset id="fieldset04" class="row g-3">
+                <h4 class="mb-3 blue">Billing</h4>
+
+            <!--BILLING: Use delivery address info-->
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="same-address">
+                <label class="form-check-label" for="same-address">Same as delivery information</label>
+              </div>
+
+            <!--BILLING: First Name-->
+            <div class="col-sm-6">
+                <label for="billingFirstName" class="form-label">First name<span class="text-secondary">*</span></label>
+                <input type="text" class="form-control" id="billingFirstName" placeholder="Jane">
+                <div id="error-fname02" class="required hide">
+                  Please enter a valid first name
+                </div>
+              </div>
+  
+              <!--BILLING: Last Name-->
+              <div class="col-sm-6">
+                <label for="billingLastName" class="form-label">Last name<span class="text-secondary">*</span></label>
+                <input type="text" class="form-control" id="billingLastName" placeholder="Doe">
+                <div class="required hide" id="error-lname02">
+                  Please enter a valid last name
+                </div>
+              </div>
+  
+              <!--BILLING: Phone Number-->
+              <div class="col-4">
+                <label for="billingPhone" class="form-label">Phone number<span class="text-secondary">*</span></label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="billingPhone" placeholder="333-333-3333">
+                  <div class="required hide" id="error-phone02">
+                    Please enter a valid phone number
+                  </div>
+                </div>
+              </div>
+  
+              <!--BILLING: Email-->
+              <div class="col-8">
+                <label for="billingEmail" class="form-label">Email<span class="text-secondary">*</span></label>
+                <input type="email" class="form-control" id="billingEmail" placeholder="me@example.com">
+                <div class="required hide" id="error-email02">
+                  Please enter a valid email address
+                </div>
+              </div>
+
+              <!--BILLING: Address Type-->
+              <div class="col-md-3">
+                  <label for="billingAddressType" class="form-label">Address type<span class="text-secondary">*</span></label>
+                  <select class="form-select" id="billingAddressType">
+                    <option value="">Choose...</option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Business">Business</option>
+                    <option value="Campus">Campus</option>
+                    <option value="Hotel">Hotel</option>
+                    <option value="Dorm">Dorm</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="required hide" id="error-addType02">
+                    Please select a valid address type
+                  </div>
+                </div>
+
+              <!--BILLING: Address Type: Other-->
+              <div class="col-9 hide" id="addressTypeOther2">
+                <label for="billingAddressTypeOther" class="form-label">Address Type<span class="text-secondary">*</span></label>
+                <input type="text" class="form-control" id="billingAddressTypeOther">
+                <div class="required hide" id="error-addTypeOther02">
+                  Please enter address type
+                </div>
+              </div>
+  
+              <!--BILLING: Address-->
+              <div class="col-9" id="address01-2">
+                <label for="billingAddress" class="form-label">Address<span class="text-secondary">*</span></label>
+                <input type="text" class="form-control" id="billingAddress" placeholder="123 Main Street">
+                <div class="required hide" id="error-address02">
+                  Please enter delivery street address
+                </div>
+              </div>
+  
+              <!--BILLING: Address 2-->
+              <div class="col-12">
+                <label for="billingAddress2" class="form-label">Address 2</label>
+                <input type="text" class="form-control" id="billingAddress2" placeholder="Apartment, suite, or room number">
+              </div>
+  
+              <!--BILLING: City-->
+              <div class="col-md-5">
+                <label for="billingCity" class="form-label">City<span class="text-secondary">*</span></label>
+                <input type="text" class="form-control" id="billingCity" placeholder="Phoenix">
+                <div class="required hide" id="error-city02">
+                  Please enter a valid city
+                </div>
+              </div>
+  
+              <!--BILLING: State-->
+              <div class="col-md-4">
+                <label for="billingState" class="form-label">State<span class="text-secondary">*</span></label>
+                <input type="text" class="form-control" id="billingState" placeholder="AZ">
+                <div class="required hide" id="error-state02">
+                  Please enter a valid state abbreviation
+                </div>
+              </div>
+  
+              <!--BILLING: Zip-->
+              <div class="col-md-3">
+                <label for="billingZip" class="form-label">Zip<span class="text-secondary">*</span></label>
+                <input type="text" class="form-control" id="billingZip" placeholder="99999 or 99999-9999">
+                <div class="required hide" id="error-zip02">
+                  Please enter valid zip code
+                </div>
+              </div>
+
+              <hr class="my-4">
+              </fieldset>
+              
+              <fieldset id="fieldset05" class="row g-3 mt-0">
+              <h4 class="mb-3 blue">Payment</h4>
+    
+              <div class="my-3">
+                <div class="form-check">
+                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked>
+                  <label class="form-check-label" for="credit">Credit card</label>
+                </div>
+               
+              </div>
+    
+              <div class="row gy-3">
+                <div class="col-md-12">
+                  <label for="cc-number" class="form-label">Credit card number<span class="text-secondary">*</span></label><small class="mb-2 blue" style="margin-left:20px" id="ccType"></small>
+                  <input type="text" class="form-control" id="cc-number">
+                  <div class="required hide" id="error-ccInvalid">
+                    Credit card number is invalid
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="cc-expiration-month" class="form-label">Expiration month<span class="text-secondary">*</span></label>
+                  <select class="form-select" id="cc-expiration-month">
+                    <option value="">Month...</option>
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                  </select>
+                  <div class="required hide" id="error-ccMonth">
+                    Expiration month required
+                  </div>
+                  <div class="required hide" id="error-ccMonth02">
+                    Expiration date must be in the future
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-expiration-year" class="form-label">Expiration year<span class="text-secondary">*</span></label>
+                  <select class="form-select" id="cc-expiration-year">
+                  </select>
+                  <div class="required hide" id="error-ccYear">
+                    Expiration year required
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV<span class="text-secondary">*</span></label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="3 Digits">
+                  <div class="required hide" id="error-cvv">
+                    Security code required
+                  </div>
+                </div>
+              </div>
+    
+              <hr class="my-4">
+              
+              <button class="w-100 btn btn-secondary btn-lg" type="submit" id="submit">Complete Order</button>
+            </fieldset>
+            </fieldset>
+            </form>
+          </div> <!--END Div 3-->
+        </div>
+      </main>
+    </div> <!--End Container-->
+
+    <script src="scripts/script.js"></script>
+      </body>
+</html>
+
+
+
+
+

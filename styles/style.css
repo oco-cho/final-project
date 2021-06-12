@@ -1,0 +1,46 @@
+#heroImg {
+    background: #2b1d14 url(../images/hero.jpg) no-repeat;
+    background-size: cover;
+    height: 700px;
+    margin: 0;
+    padding: 0;
+}
+
+#background {
+    background: #2b1d14 url(../images/btmBG.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0
+}
+
+.hideMe {display:none} /*Hide Steps Order Form*/
+
+.backToDelivery, #backToOrder {cursor: pointer}
+
+.required {color:red}
+
+.leftSpacing {padding-left: 45px;}
+
+.hide {display:none} /*Hide Fieldsets*/
+
+.hide-error {display:none};
+
+.bold {font-weight: bold;}
+
+.blue {color: #05538f;}
+
+.blueBG {background-color: #05538f;}
+
+.container {
+    margin-top: -1500px;
+    background: rgba(255, 255, 255, .7)
+}
+
+.header {
+    font-family: terfens, sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #05538f;
+    font-size: 27px;
+}
